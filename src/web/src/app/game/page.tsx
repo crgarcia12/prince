@@ -38,7 +38,6 @@ export default function GamePage() {
           aspectRatio: `${CANVAS_WIDTH} / ${DISPLAY_HEIGHT}`,
         }}
         tabIndex={0}
-        autoFocus
       />
       <div className="mt-4 text-gray-500 text-sm text-center font-mono">
         <p>Arrow Keys: Move &amp; Jump | Shift: Careful Step / Attack | Up: Block</p>

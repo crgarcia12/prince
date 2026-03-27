@@ -161,7 +161,7 @@ export function calculateFallDamage(fallDistance: number, hasFeatherFall: boolea
   if (hasFeatherFall) return 0;
   if (fallDistance < SAFE_FALL_DISTANCE) return 0;
   if (fallDistance < DAMAGE_FALL_DISTANCE) return 1;
-  if (fallDistance < FATAL_FALL_DISTANCE) return 1;
+  if (fallDistance < FATAL_FALL_DISTANCE) return 2;
   return 100; // Fatal
 }
 

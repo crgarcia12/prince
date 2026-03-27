@@ -924,7 +924,9 @@ export class GameEngine {
 
   private handleStep(player: Player): void {
     player.stateTimer++;
-    const dir = player.state === PlayerState.StepForward ? player.direction : -player.direction as Direction;
+    const dir = player.state === PlayerState.StepForward
+      ? player.direction
+      : (player.direction === Direction.Left ? Direction.Right : Direction.Left);
 
     if (player.stateTimer <= 4) {
       const newX = player.x + dir * 2;
@@ -1094,7 +1096,7 @@ export class GameEngine {
         if (guard.stateTimer <= 3) {
           const pushDir = guard.direction === Direction.Right ? Direction.Left : Direction.Right;
           const newX = guard.x + pushDir * 4;
-          const col = Math.floor((newX + (pushDir === 1 ? GUARD_WIDTH : 0)) / TILE_WIDTH);
+          const col = Math.floor((newX + (pushDir === Direction.Right ? GUARD_WIDTH : 0)) / TILE_WIDTH);
           const row = Math.floor((guard.y + GUARD_HEIGHT) / TILE_HEIGHT);
 
           // Check for edge — guard can fall
